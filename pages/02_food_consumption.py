@@ -1,4 +1,5 @@
-
+import streamlit as st
+import requests
 from wordcloud import WordCloud
 import nltk
 from bs4 import BeautifulSoup
