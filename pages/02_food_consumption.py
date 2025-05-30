@@ -10,17 +10,6 @@ from collections import Counter
 import os
 import re
 
-# Safe downloader that avoids redownloading
-def safe_download(resource):
-    try:
-        nltk.data.find(resource)
-    except LookupError:
-        nltk.download(resource.split("/")[-1]
-                                        
-safe_download("tokenizers/punkt")
-safe_download("corpora/stopwords")
-safe_download("corpora/wordnet")
-
 st.markdown("---")
 st.title("Food Consumption & Sentiment Tracker")
 
