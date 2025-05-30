@@ -1,7 +1,6 @@
 import streamlit as st
 import requests
 from wordcloud import WordCloud
-import nltk
 from bs4 import BeautifulSoup
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -9,6 +8,11 @@ from nltk.stem import WordNetLemmatizer
 from collections import Counter
 import os
 import re
+import nltk
+
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 st.markdown("---")
 st.title("Food Consumption & Sentiment Tracker")
