@@ -106,3 +106,6 @@ with col1:
 with col2:
     st.subheader("Sentiment Trend: Healthy vs Unhealthy Mentions")
     st.info("This section will show real sentiment analysis once integrated.")
+
+with st.spinner("Scraping food blogs... please wait."):
+    corpus = " ".join([scrape_text(url) for url in urls])
