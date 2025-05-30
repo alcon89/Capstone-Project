@@ -13,10 +13,23 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from collections import Counter
 import plotly.express as px
+import os
 
-nltk.download("punkt")
-nltk.download("stopwords")
-nltk.download("wordnet")
+# Point NLTK to a local writable path
+nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
+# Safe downloader that avoids redownloading
+def safe_download(resource):
+    try:
+        nltk.data.find(resource)
+    except LookupError:
+        nltk.download(resource.split("/")[-1], download_dir=nltk_data_dir)
+
+safe_download("tokenizers/punkt")
+safe_download("corpora/stopwords")
+safe_download("corpora/wordnet")
 
 st.markdown("---")
 st.title("Food Consumption & Sentiment Tracker")
