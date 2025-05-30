@@ -97,6 +97,10 @@ food_keywords = set([
 tokens = [w for w in tokens if w in food_keywords]
 word_freq = Counter(tokens)
 
+if not tokens:
+    st.warning("No food-related keywords found in the scraped content.")
+    st.stop()
+
 col1, col2 = st.columns(2)
 with col1:
     st.subheader("Top Trending Food Keywords")
