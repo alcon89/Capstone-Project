@@ -27,7 +27,7 @@ st.markdown("""
 """)
 
 # Load real import/export data
-trade_df = pd.read_csv("C:/Users/PC/02_Forward School/Capstone Project-Alcon Marshall/00_Datasets/04 Import Export/trade_sitc_1d.csv")
+trade_df = pd.read_csv("00_Datasets/04 Import Export/trade_sitc_1d.csv")
 
 # Clean column names for safety
 trade_df.columns = trade_df.columns.str.strip().str.lower().str.replace(" ", "_")
@@ -80,7 +80,7 @@ with col2:
     else:
         st.warning("Required columns missing for food trade view.")
 
-crop_df = pd.read_csv("C:/Users/PC/02_Forward School/Capstone Project-Alcon Marshall/00_Datasets/03 Crop Production/crops_state.csv")
+crop_df = pd.read_csv("00_Datasets/03 Crop Production/crops_state.csv")
 crop_df.columns = crop_df.columns.str.strip().str.lower().str.replace(" ", "_")
 
 col3, col4 = st.columns(2)

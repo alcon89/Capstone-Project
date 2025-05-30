@@ -25,7 +25,7 @@ st.markdown("""
 - Number of Establishments by Industry (2010–2017)
 """)
 
-industry_df = pd.read_csv("C:/Users/PC/02_Forward School/Capstone Project-Alcon Marshall/00_Datasets/02 F&B by Activity/dataset_stalls.csv")
+industry_df = pd.read_csv("00_Datasets/02 F&B by Activity/dataset_stalls.csv")
 industry_df = industry_df[(industry_df['Year'] >= 2010) & (industry_df['Year'] <= 2017)]
 categories = [
     'Restaurants and restaurants cum night clubs',

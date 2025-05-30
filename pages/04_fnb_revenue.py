@@ -24,7 +24,7 @@ st.markdown("""
 - Gross Output by category (2010–2017)
 """)
 
-activity_df = pd.read_csv("C:/Users/PC/02_Forward School/Capstone Project-Alcon Marshall/00_Datasets/01 F&B by Industry/dataset _activity.csv")
+activity_df = pd.read_csv("00_Datasets/01 F&B by Industry/dataset _activity.csv")
 activity_df = activity_df[(activity_df['Year'] >= 2010) & (activity_df['Year'] <= 2017)]
 
 pivot_table = activity_df.pivot(index='Year', columns='Activity', values="Value of gross output (RM'000)").reset_index()

@@ -1,22 +1,18 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from wordcloud import WordCloud
-import ast
-import nltk
-import re
 import requests
+from wordcloud import WordCloud
 from bs4 import BeautifulSoup
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from collections import Counter
-import plotly.express as px
+import os
+import re
+import nltk
 
-nltk.download("punkt")
-nltk.download("stopwords")
-nltk.download("wordnet")
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 st.markdown("---")
 st.title("Food Consumption & Sentiment Tracker")
@@ -89,6 +85,10 @@ food_keywords = set([
 tokens = [w for w in tokens if w in food_keywords]
 word_freq = Counter(tokens)
 
+if not tokens:
+    st.warning("No food-related keywords found in the scraped content.")
+    st.stop()
+
 col1, col2 = st.columns(2)
 with col1:
     st.subheader("Top Trending Food Keywords")
@@ -98,3 +98,6 @@ with col1:
 with col2:
     st.subheader("Sentiment Trend: Healthy vs Unhealthy Mentions")
     st.info("This section will show real sentiment analysis once integrated.")
+
+with st.spinner("Scraping food blogs... please wait."):
+    corpus = " ".join([scrape_text(url) for url in urls])

@@ -24,7 +24,7 @@ st.markdown("""
 - Volatility Insights (Table with colour grading)
 """)
 
-price_df = pd.read_csv("C:/Users/PC/02_Forward School/Capstone Project-Alcon Marshall/00_Datasets/05 Food Price/producer-prices_mys.csv")
+price_df = pd.read_csv("00_Datasets/05 Food Price/producer-prices_mys.csv")
 price_df.columns = price_df.columns.str.strip().str.lower().str.replace(" ", "_")
 
 # Interactive Trend Line Chart: Plant vs Animal Based
