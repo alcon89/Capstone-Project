@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from collections import Counter
 import os
+import re
 
 # Point NLTK to a local writable path
 nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
