@@ -1,18 +1,11 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 from wordcloud import WordCloud
-import ast
 import nltk
-import re
-import requests
 from bs4 import BeautifulSoup
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from collections import Counter
-import plotly.express as px
 import os
 
 # Point NLTK to a local writable path
