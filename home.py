@@ -5,6 +5,10 @@ import seaborn as sns
 from wordcloud import WordCloud
 import ast
 import nltk
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 import re
 import requests
 from bs4 import BeautifulSoup
