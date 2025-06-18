@@ -75,7 +75,7 @@ custom_stopwords = set(["malaysia", "malaysian", "connect", "market", "consumer"
 def clean_text(text):
     text = text.lower()
     text = re.sub(r'[^a-zA-Z\s]', '', text)
-    tokens = word_tokenize(text)
+    tokens = word_tokenize(text, language="english")  # KEY FIX
     stop_words = set(stopwords.words("english")).union(custom_stopwords)
     return [w for w in tokens if w not in stop_words and len(w) > 2]
 
