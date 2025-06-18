@@ -103,15 +103,9 @@ if not tokens:
     st.warning("No food-related keywords found in the scraped content.")
     st.stop()
 
-col1, col2 = st.columns(2)
-with col1:
     st.subheader("Top Trending Food Keywords")
     wordcloud = WordCloud(width=600, height=300, background_color='white').generate_from_frequencies(word_freq)
     st.image(wordcloud.to_array(), use_column_width=True)
-
-with col2:
-    st.subheader("Sentiment Trend: Healthy vs Unhealthy Mentions")
-    st.info("This section will show real sentiment analysis once integrated.")
 
 with st.spinner("Scraping food blogs... please wait."):
     corpus = " ".join([scrape_text(url) for url in urls])
