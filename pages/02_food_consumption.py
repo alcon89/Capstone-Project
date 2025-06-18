@@ -7,8 +7,6 @@ def ensure_nltk_resource(resource, path):
         nltk.download(resource)
 
 # Ensure all NLTK resources exist
-@st.cache_data
-def ensure_nltk_dependencies():
 ensure_nltk_resource('punkt', 'tokenizers/punkt')
 ensure_nltk_resource('stopwords', 'corpora/stopwords')
 ensure_nltk_resource('wordnet', 'corpora/wordnet')
