@@ -73,10 +73,10 @@ def clean_text(text):
     text = re.sub(r'[^a-zA-Z\s]', '', text)
 
     # Manual two-step tokenization
-    sentences = sent_tokenize(text)  # Forces use of punkt/english.pickle
+    sentences = sent_tokenize(text, language="english")  # Forces use of punkt/english.pickle
     tokens = []
     for sentence in sentences:
-        tokens.extend(word_tokenize(sentence))
+        tokens.extend(word_tokenize(sentence, language="english"))
 
     stop_words = set(stopwords.words("english")).union(custom_stopwords)
     return [w for w in tokens if w not in stop_words and len(w) > 2]
