@@ -7,4 +7,4 @@ nltk
 beautifulsoup4
 requests
 plotly
-nltk>=3.8
+nltk==3.8.1
