@@ -22,10 +22,6 @@ from collections import Counter
 import os
 import re
 
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
-
 st.markdown("---")
 st.title("Food Consumption & Sentiment Tracker")
 
@@ -75,7 +71,13 @@ custom_stopwords = set(["malaysia", "malaysian", "connect", "market", "consumer"
 def clean_text(text):
     text = text.lower()
     text = re.sub(r'[^a-zA-Z\s]', '', text)
-    tokens = word_tokenize(text, language="english")  # KEY FIX
+
+    # Manual two-step tokenization
+    sentences = sent_tokenize(text)  # Forces use of punkt/english.pickle
+    tokens = []
+    for sentence in sentences:
+        tokens.extend(word_tokenize(sentence))
+
     stop_words = set(stopwords.words("english")).union(custom_stopwords)
     return [w for w in tokens if w not in stop_words and len(w) > 2]
 
