@@ -103,8 +103,6 @@ if not tokens:
     st.warning("No food-related keywords found in the scraped content.")
     st.stop()
 
-col1, col2 = st.columns(2)
-with col1:
     st.subheader("Top Trending Food Keywords")
     wordcloud = WordCloud(width=600, height=300, background_color='white').generate_from_frequencies(word_freq)
     st.image(wordcloud.to_array(), use_column_width=True)
