@@ -1,3 +1,16 @@
+import nltk
+
+def ensure_nltk_resource(resource, path):
+    try:
+        nltk.data.find(path)
+    except LookupError:
+        nltk.download(resource)
+
+# Ensure all NLTK resources exist
+ensure_nltk_resource('punkt', 'tokenizers/punkt')
+ensure_nltk_resource('stopwords', 'corpora/stopwords')
+ensure_nltk_resource('wordnet', 'corpora/wordnet')
+
 import streamlit as st
 import requests
 from wordcloud import WordCloud
