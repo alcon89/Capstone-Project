@@ -12,6 +12,9 @@ ensure_nltk_resource('punkt', 'tokenizers/punkt')
 ensure_nltk_resource('stopwords', 'corpora/stopwords')
 ensure_nltk_resource('wordnet', 'corpora/wordnet')
 
+# Manual two-step tokenization
+sentences = sent_tokenize(text, language="english")  # Forces use of punkt/english.pickle
+
 import streamlit as st
 import requests
 from wordcloud import WordCloud
