@@ -1,12 +1,13 @@
 import nltk
+from nltk.tokenize import sent_tokenize, word_tokenize
 
+# Ensure necessary NLTK resources are available
 def ensure_nltk_resource(resource, path):
     try:
         nltk.data.find(path)
     except LookupError:
         nltk.download(resource)
 
-# Ensure all NLTK resources exist
 ensure_nltk_resource('punkt', 'tokenizers/punkt')
 ensure_nltk_resource('stopwords', 'corpora/stopwords')
 ensure_nltk_resource('wordnet', 'corpora/wordnet')
@@ -15,13 +16,11 @@ import streamlit as st
 import requests
 from wordcloud import WordCloud
 from bs4 import BeautifulSoup
-from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from collections import Counter
 import os
 import re
-import nltk
 
 nltk.download('punkt')
 nltk.download('stopwords')
