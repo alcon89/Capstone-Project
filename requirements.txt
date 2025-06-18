@@ -7,4 +7,4 @@ nltk
 beautifulsoup4
 requests
 plotly
-nltk # also requires punkt tokenizer: use nltk.download('punkt') in code
+nltk>=3.8
